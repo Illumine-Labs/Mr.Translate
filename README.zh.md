@@ -5,6 +5,7 @@
 ![0](./images/0.png)
 
 > 说明：在 GPT-4 或 GPT-4 Plugin 下面使用更好。
+> 在 GPT-4 Plugin 中如果无需使用 Plugin ，则在命令后面增加 `*NO PLUGIN*`
 
 本 Prompt 参考 [https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/](https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/) 进行修改，但是与原版不同的是，特别使用 [Prompt 描述语言（PDL,Prompt Descrition Language)](https://github.com/ZhangHanDong/prompt-description-language)编写 Prompt。该描述语言支持将 Prompt 命令化和模块化。
 
