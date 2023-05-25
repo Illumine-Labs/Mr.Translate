@@ -3,7 +3,7 @@
 通过一个 Prompt 将 ChatGPT 打造为一个翻译、总结和学习英语的智能助手。
 
 > 当前版本 V0.3，如果发现什么问题请提 Issue 交流。
-> 说明：在 GPT-4 或 GPT-4 Plugin 下面使用更好。
+> 说明：GPT-3.5 可用，在 GPT-4 或 GPT-4 Plugin 下面更佳。
 > 推荐配合这三种 GPT 插件使用更佳： WebPilot/ScholarAI/Speak。值得说明的是，本 Prompt 中已经限定了哪些命令只能使用哪个插件。
 
 本 Prompt 的灵感来自于 [https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/](https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/) 。但是专注于翻译、总结和英语的学习。

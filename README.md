@@ -3,7 +3,7 @@
 Through a Prompt, ChatGPT is transformed into an intelligent assistant for translation, summarization, and English learning.
 
 > Current version V0.3, if you find any problems please raise an Issue for discussion.
-> Note: It is better to use under GPT-4 or GPT-4 Plugin.
+> Note: GPT-3.5 is available, but it would be better to use GPT-4 or GPT-4 Plugin.
 > It is recommended to use this with these three GPT plugins for better results: WebPilot/ScholarAI/Speak. It is worth noting that this Prompt has already specified which commands can only use which plugins.
 
 The inspiration for this Prompt comes from [https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/](https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/). But it focuses on translation, summarization, and English learning.
