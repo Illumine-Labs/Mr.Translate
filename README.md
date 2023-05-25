@@ -1,66 +1,75 @@
 # Mr.Trans Prompt
 
-Use a prompt to turn ChatGPT into an intelligent assistant for language learning and translation.
+Through a Prompt, ChatGPT is transformed into an intelligent assistant for translation, summarization, and English learning.
 
-![0](./images/0.png)
+> Current version V0.3, if you find any problems please raise an Issue for discussion.
+> Note: It is better to use under GPT-4 or GPT-4 Plugin.
+> It is recommended to use this with these three GPT plugins for better results: WebPilot/ScholarAI/Speak. It is worth noting that this Prompt has already specified which commands can only use which plugins.
 
-> Note: It works better under GPT-4 or GPT-4 Plugin.
+The inspiration for this Prompt comes from [https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/](https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/). But it focuses on translation, summarization, and English learning.
 
-This prompt is modified based on [https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/](https://github.com/JushBJJ/Mr.-Ranedeer-AI-Tutor/), but what's different from the original is that it particularly uses [Prompt Description Language (PDL)](https://github.com/ZhangHanDong/prompt-description-language) to write the prompt. This description language supports command and module for the prompt.
+This intelligent assistant can assist you in efficiently completing the following daily tasks:
+- Translation. Automatically recognize languages, default to use Chinese and English translation. You can specify the target language for translation through commands.
+    - Supports given text. Usage: `/trans <TEXT>` or `/trans -l Chinese <TEXT>`.
+    - Given article link (requires WebPilot plugin). Usage: `/trans <URL>` or `/trans -l Chinese <URL>`.
+- Specify translation dictionary. `/dict`, list the available English-Chinese and English-English translation dictionaries. Choose the dictionary you want to use through `/dict -e2c <Dictionary>` or `/dict -e2e <Dictionary>`.
+- Search. Default to use WebPilot plugin based on Google search, when specifically specified to search for papers, will use `ScholarAI` plugin to retrieve papers.
+- Summary. Supports given text or link (requires WebPilot plugin). You can specify the target language for translation through commands.
+    - Given text or link usage: `/summary <TEXT/URL>` or `/summary -l Chinese <TEXT/URL>`
+    - Multiple commands combined, can summarize the text output of previous commands.
+    ```
+    /search Search for three Rust language dynamics today
+    /summary - Chinese
+    ```
+- English learning. With the `Speak` plugin, combined with `/trans` and `/learn` commands, you can carry out in-depth learning for daily unfamiliar words, phrases or sentences.
 
-## Features
+## Mr.Trans Prompt Features
 
-If ChatGPT misses certain settings, you can conveniently fine-tune it.
+- Use my designed [【WIP】Prompt Description Language (PDL,Prompt Description Language)](https://github.com/ZhangHanDong/prompt-description-language) to write Prompt. This description language supports writing structured and modularized Prompt.
+- Supports multiple commands combined use.
 
-For example, if ChatGPT misses the 'trans' command rule, you can input the following fine-tuning prompt into the input box:
+## Instructions
 
-> import@features_learning_trans
+Copy the contents of the [Mr.Trans.pdl](./Mr.Trans.pdl) file into ChatGPT, press enter, and then set according to the instructions.
 
-## Instructions for Use
+This is the command list that ChatGPT can recognize:
 
+```
+- `/config`: Prompt the user through the configuration process, including asking for the preferred language. *NO PLUGINS*
+- `/dict`: List the available dictionary options. *NO PLUGINS*
+- `/help`: List all the commands, descriptions, and rules I recognize. *NO PLUGINS*
+- `/trans`: Identify the language of the given text and translate it into the specified target language. *NO PLUGINS*
+- `/lang`: The default target language to choose for translation. Usage: `/lang [lang]`. E.g: `/lang Chinese`. *NO PLUGINS*
+- `/learn`: Choose to learn a specific word or phrase. Usage /learn [word]. When selecting to learn a specific word or phrase, it is recommended to provide comprehensive information, including the full definitions of the word, including English to Chinese translation, English to English translation, specialized terminology translation, example sentences, and more. *USES SPEAK PLUGIN*
+- `/search`: Search based on what the user specifies. *USES WEBPILOT AND SCHOLARAI PLUGINS*
+- `/summary`: Provide a detailed summary of the given text or link, not less than 300 words. If the `/summary` command is the last command, it will summarize the results of the previous commands. *USES WEBPILOT AND SCHOLARAI PLUGINS*
+- `/plugins`: List recommended GPT plugins. *NO PLUGINS*
+- `-l`: Second-level command, Specify the target language for the first-level command.  like: `/trans -l <Target> <TEXT>` or `/summary -l <Target> <TEXT/URL>`. *NO PLUGINS*
+- `-plugin`: Specify the GPT plugin to be used. Second-level command, used in conjunction with the first-level command. *REQUIRES PLUGINS*
+```
+
+In plugin mode, if you don't want to use a plugin for a certain command, you can add `*NO PLUGINS*` after the command.
+
+> Currently, this method cannot completely turn off plugins either. If there is a way, please let me know."
+
+## Q&A
+
+**Special note: Sometimes ChatGPT does not execute commands as required, you just need to remind it. It fully understands the command.**
+
+Q: How long does it take to reset the Prompt in a conversation?
+A: Under GPT-4, it is estimated to be about two weeks (personal experience estimate, not necessarily accurate), if you find that ChatGPT does not recognize the command, you need to reset the Prompt.
+
+
+## Usage Illustration
+
+![1](./images/1.png)
+![2](./images/2.png)
+![3](./images/3.png)
+![4](./images/4.png)
 ![5](./images/5.png)
-
-Copy the content in [Mr.Trans.pdl](./Mr.Trans.pdl) file into ChatGPT, press enter, and then set it according to the command.
-
-Here are all the commands, descriptions, and rules I recognize:
-
-**Commands:**
-
-1. `list`: List all the commands, descriptions, and rules you recognize
-2. `test`: Test the student
-3. `config`: Prompt the user through the configuration process, incl. asking for the preferred language
-4. `plan`: Create a lesson plan based on the student's preferences
-5. `search`: Search based on what the student specifies (requires plugins)
-6. `start`: Start the lesson plan
-7. `continue`: Continue where you left off
-8. `self-eval`: Execute format <self-evaluation>
-9. `lang`: Change the language yourself. Usage: /lang [lang]. E.g: /lang Chinese
-10. `op_lang`: Change the language of our interaction. The default should be Chinese. Usage: /op_lang [lang]. E.g: /op_lang Chinese
-11. `visualize`: Use plugins to visualize the content (requires plugins)
-12. `trans`: Identify the language of the given text and translate it into the specified target language. The default target language is English. like: `/trans <TEXT>`
-13. `trans -l`: Specify the target language for 'trans' command. like: `/trans <TEXT> -l <Target>`
-
-**Rules:**
-
-1. Follow the student's specified learning style, communication style, tone style, reasoning framework, and depth
-2. Be able to create a lesson plan based on the student's preferences
-3. Be decisive, take the lead on the student's learning, and never be unsure of where to continue
-4. Always take into account the configuration as it represents the student's preferences
-5. Allowed to adjust the configuration to emphasize particular elements for a particular lesson, and inform the student about the changes
-6. Allowed to teach content outside of the configuration if requested or deemed necessary
-7. Be engaging and use emojis if the use_emojis configuration is set to true
-8. Obey the student's commands
-9. Double-check your knowledge or answer step-by-step if the student requests it
-10. Mention to the student to say /continue to continue or /test to test at the end of your response
-11. You are allowed to change your language to any language that is configured by the student
-12. In lessons, you must provide solved problem examples for the student to analyze, this is so the student can learn from example
-13. In lessons, if there are existing plugins, you can activate plugins to visualize or search for content. Else, continue
-14. When the text to be translated only has one word for `trans` command, then detailed information should be provided a detailed explanation, including `pronunciation`, `part of speech`, `example sentences`, `synonyms`, `antonyms`, `etymology`, `all English definitions`, `all Chinese definitions`, `derivations`, and `the frequency of the word in actual use` in your Output.
-
-I hope this is helpful for you!
-
-
-
-
-
-
+![6](./images/6.png)
+![7](./images/7.png)
+![8](./images/8.png)
+![9](./images/9.png)
+![10](./images/10.png)
+![11](./images/11.png)
