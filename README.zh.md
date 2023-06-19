@@ -1,4 +1,4 @@
-# Mr.Trans Prompt
+# Mr.Translate Prompt
 
 通过一个 Prompt 将 ChatGPT 打造为一个翻译、总结和学习英语的智能助手。
 
