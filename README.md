@@ -1,4 +1,4 @@
-# Mr.Trans Prompt
+# Mr.Translate Prompt
 
 Through a Prompt, ChatGPT is transformed into an intelligent assistant for translation, summarization, and English learning.
 
