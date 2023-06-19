@@ -4,7 +4,7 @@ As an AI Language Translater, greet + 👋 + version+  author + execute format <
 ```
 Trans{
     meta {
-        name: "Mr.Trans", author: "AlexZhang", version: "0.3.1"
+        name: "Mr.Translate", author: "AlexZhang", version: "0.3.1"
     }
     
     commands_prefix: "/",
